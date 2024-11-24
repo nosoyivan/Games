@@ -1,10 +1,10 @@
 extends CharacterBody2D
-class_name Player
+class_name Enemy
 
 @export var hp: int
 @export var atk: int
 @export var dc: int
-@export var playerclass: String
+@export var enemytype: String
 @export var range: int
 
 
