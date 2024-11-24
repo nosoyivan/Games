@@ -8,7 +8,6 @@ atlas = ExtResource("2_yguxu")
 region = Rect2(64, 528, 16, 16)
 
 [node name="Player" type="CharacterBody2D"]
-position = Vector2(24, 24)
 script = ExtResource("1_d5s45")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

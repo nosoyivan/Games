@@ -7,43 +7,34 @@ class_name Enemy
 @export var enemytype: String
 @export var range: int
 
-
+@onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 @onready var tile_map = $"../Map/Floor"
 @onready var sprite_2d = $Sprite2D
 @onready var ray = $RayCast2D
 
-var is_moving = false
-var current_pos = [24,24]
-var px: int = 16
+var player: Node2D
 
-func _input(event):
-	if event.is_action_pressed("up"):
-		ray.target_position = Vector2.UP * range
-		ray.force_raycast_update()
-		if ray.is_colliding():
-			return
-		else:
-			current_pos[1] -= px
-	elif event.is_action_pressed("down"):
-		ray.target_position = Vector2.DOWN * range
-		ray.force_raycast_update()
-		if ray.is_colliding():
-			return
-		else:
-			current_pos[1] += px
-	elif event.is_action_pressed("left"):
-		ray.target_position = Vector2.LEFT * range
-		ray.force_raycast_update()
-		if ray.is_colliding():
-			return
-		else:
-			current_pos[0] -= px
-	elif event.is_action_pressed("right"):
-		ray.target_position = Vector2.RIGHT * range
-		ray.force_raycast_update()
-		if ray.is_colliding():
-			return
-		else:
-			current_pos[0] += px
+func _ready():
+	# Adjust the path to your player node
+	player = get_node("/root/Node2D/Player")
+	# Connect to the player's signal
+	player.connect("key_pressed", self, "_on_player_key_pressed")
 
-	self.position = Vector2(current_pos[0], current_pos[1])
+func _on_player_key_pressed():
+	# Set the target position to the player's position
+	navigation_agent_2d.set_target_position(player.global_position)
+
+	# Check if the navigation is finished
+	if not navigation_agent_2d.is_navigation_finished():
+		var next_position = navigation_agent_2d.get_next_path_position()
+		var direction = (next_position - global_position).normalized()
+		var step_distance = 16  # Adjust to your grid size or desired step size
+
+		# Move the enemy towards the next position by one step
+		global_position += direction * step_distance
+
+		# Advance the navigation agent
+		navigation_agent_2d.set_velocity(direction * step_distance)
+		navigation_agent_2d.advance(step_distance)
+	else:
+		print("Enemy has reached the player.")
