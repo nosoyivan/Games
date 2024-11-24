@@ -1,11 +1,13 @@
 extends Node2D
-
-
-# Called when the node enters the scene tree for the first time.
+var playerStartPos = [15,24]
 func _ready():
-	pass # Replace with function body.
+	process_mode = Node.PROCESS_MODE_PAUSABLE
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+func playerKeypressed():
+	get_tree().paused = true
+	await get_tree().create_timer(0.125).timeout
+	get_tree().paused = false
+	pass  # Replace with function body.
