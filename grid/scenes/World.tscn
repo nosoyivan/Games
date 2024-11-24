@@ -5497,10 +5497,5 @@ position = Vector2(8, 8)
 
 [node name="Enemy" parent="." instance=ExtResource("5_mli4n")]
 position = Vector2(120, 136)
-hp = null
-atk = null
-dc = null
-enemytype = null
-range = null
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="Enemy"]

@@ -16,13 +16,13 @@ var player: Node2D
 
 func _ready():
 	# Adjust the path to your player node
-	player = get_node("/root/Node2D/Player")
-	# Connect to the player's signal
-	player.connect("key_pressed", self, "_on_player_key_pressed")
+	player = get_node("/root/World/Player")
+	# Connect to the player's signal correctly
+	player.connect("key_pressed", self._on_player_key_pressed)
 
 func _on_player_key_pressed():
 	# Set the target position to the player's position
-	navigation_agent_2d.set_target_position(player.global_position)
+	navigation_agent_2d.target_position = player.global_position
 
 	# Check if the navigation is finished
 	if not navigation_agent_2d.is_navigation_finished():
@@ -34,7 +34,7 @@ func _on_player_key_pressed():
 		global_position += direction * step_distance
 
 		# Advance the navigation agent
-		navigation_agent_2d.set_velocity(direction * step_distance)
+		navigation_agent_2d.velocity = direction * step_distance
 		navigation_agent_2d.advance(step_distance)
 	else:
 		print("Enemy has reached the player.")
