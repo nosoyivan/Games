@@ -8,7 +8,7 @@ signal playerKeypressed
 @export var atk: int
 @export var dc: int
 @export var playerclass: String
-@export var range: int = 16
+@export var range: int = 22
 
 
 @onready var tile_map = $"../Map/Floor"
@@ -16,7 +16,7 @@ signal playerKeypressed
 @onready var movecheck = $RayCast2D
 var can_move = false
 var is_moving = false
-var current_pos = [15,24]
+var current_pos = [24,24]
 var px: int = 16
 var start_pos: Vector2
 @onready var world = $".."

@@ -6,7 +6,7 @@ class_name Enemy1
 @export var atk: int
 @export var dc: int
 @export var enemytype: String
-@export var range: int = 16
+@export var range: int = 22
 
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 @onready var tile_map = $"../Map/Floor"

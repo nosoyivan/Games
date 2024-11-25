@@ -19,6 +19,7 @@ Sequence:
 Move > Attack > End
 
 
+Single square hit Ray = 16
 
 
 Slime 64 480

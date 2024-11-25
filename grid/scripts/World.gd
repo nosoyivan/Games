@@ -1,5 +1,5 @@
 extends Node2D
-var playerStartPos = [15,24]
+var playerStartPos = [24,24]
 func _ready():
 	process_mode = Node.PROCESS_MODE_PAUSABLE
 
