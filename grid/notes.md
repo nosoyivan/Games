@@ -36,3 +36,7 @@ Goblin 80 480
 [X0][X1][X2][Y3][Y4][Y5][Y6][Z7][Z8][Z9]
 [X0][X1][X2][X3][Y4][Y5][z6][Z7][Z8][Z9]
 [X0][X1][X2][X3][X4][Z5][Z6][Z7][Z8][Z9]
+
+
+ 
+octile astar movement

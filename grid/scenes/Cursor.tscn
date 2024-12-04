@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjd220k66oskt"]
+
+[ext_resource type="Script" path="res://scripts/Cursor.gd" id="1_jbqxb"]
+[ext_resource type="Texture2D" uid="uid://dbaq2rnxco2ae" path="res://assets/crosshairs_tilesheet_white.png" id="1_ly1s7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uf5y2"]
+atlas = ExtResource("1_ly1s7")
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_jbqxb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_uf5y2")
+hframes = 20
+vframes = 10
+frame = 125

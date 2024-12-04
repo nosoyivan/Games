@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cx3ma0tdcfhy1"]
+
+[ext_resource type="PackedScene" uid="uid://bjtwxpj17drfr" path="res://scenes/Maps/MapTwo.tscn" id="1_tth5f"]
+[ext_resource type="PackedScene" uid="uid://c4qcqfpwn172k" path="res://scenes/1Player.tscn" id="2_0fd4q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7hc65"]
+size = Vector2(240, 240)
+
+[node name="WorldClick" type="Node2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(120, 119.375)
+shape = SubResource("RectangleShape2D_7hc65")
+
+[node name="Map" parent="." instance=ExtResource("1_tth5f")]
+
+[node name="Player" parent="." instance=ExtResource("2_0fd4q")]
+position = Vector2(23, 24)
