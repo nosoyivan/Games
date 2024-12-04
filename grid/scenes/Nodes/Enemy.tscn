@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://dw6aw28n1rlro"]
+
+[ext_resource type="Script" path="res://scripts/Basic/Enemies.gd" id="1_q4gdy"]
+[ext_resource type="Texture2D" uid="uid://bbilgyk2fthe6" path="res://assets/The Roguelike 1-13-14 Alpha.png" id="2_kojnp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2cnn"]
+atlas = ExtResource("2_kojnp")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_051jh"]
+radius = 8.0
+
+[node name="Enemy" type="Node2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_q4gdy")
+
+[node name="Base" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_a2cnn")
+hframes = 89
+vframes = 46
+frame = 2673
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CircleCol" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_051jh")

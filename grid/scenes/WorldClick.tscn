@@ -1,19 +1,17 @@
 [gd_scene load_steps=4 format=3 uid="uid://cx3ma0tdcfhy1"]
 
-[ext_resource type="PackedScene" uid="uid://bjtwxpj17drfr" path="res://scenes/Maps/MapTwo.tscn" id="1_tth5f"]
-[ext_resource type="PackedScene" uid="uid://c4qcqfpwn172k" path="res://scenes/1Player.tscn" id="2_0fd4q"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7hc65"]
-size = Vector2(240, 240)
+[ext_resource type="Script" path="res://scripts/WorldClick.gd" id="1_iiwi5"]
+[ext_resource type="PackedScene" uid="uid://cpurgrabcgtji" path="res://scenes/Nodes/MainPlayer.tscn" id="1_lq3nk"]
+[ext_resource type="PackedScene" uid="uid://dw6aw28n1rlro" path="res://scenes/Nodes/Enemy.tscn" id="2_kl04f"]
 
 [node name="WorldClick" type="Node2D"]
+script = ExtResource("1_iiwi5")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(120, 119.375)
-shape = SubResource("RectangleShape2D_7hc65")
+[node name="MainPlayer" parent="." instance=ExtResource("1_lq3nk")]
 
-[node name="Map" parent="." instance=ExtResource("1_tth5f")]
+[node name="Enemy" parent="." instance=ExtResource("2_kl04f")]
+position = Vector2(40, 0)
 
-[node name="Player" parent="." instance=ExtResource("2_0fd4q")]
-position = Vector2(23, 24)
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
